@@ -9,7 +9,10 @@
   "keywords": [],
   "author": "Jaime Yerena <ing.carlosjaime@outlook.com>",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^27.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
