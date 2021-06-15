@@ -1,0 +1,15 @@
+{
+  "name": "enroute-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Jaime Yerena <ing.carlosjaime@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^27.0.4"
+  }
+}
