@@ -7,12 +7,13 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "Jaime Yerena <ing.carlosjaime@outlook.com>",
+  "author": "Emmanuel Najera <najeradev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "jest": "^27.0.4"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
   }
 }

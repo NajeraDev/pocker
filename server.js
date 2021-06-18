@@ -1,31 +1,23 @@
 const express = require('express');
-const path = require('path');
-const { Deck, Hand } = require('./cards/deck');
-
 const app = express();
-
-const PORT = 4040;
-
-const deck = new Deck();
+const { Deck, Hand } = require('./cards/deck.js');
 
 app.use(express.static('public'));
+app.use(express.json());
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'));
+const deck = new Deck()
+const table = new Hand(deck, +5)
+
+app.get('/get-cards', (req, res) => {
+  const hands = [];
+  hands.push(new Hand(deck, +2))
+  return res.json({
+    hands: hands.map((hand) => hand.cards),
+    deck: table.cards
+  })
+})
+  
+app.listen(4001, () => {
+  console.log('Server running on port 4001');
 });
 
-app.get('/play', (req, res) => {
-  const currentHands = {};
-  for (let i = 1; i <= 5; i++) {
-    const hand = new Hand(deck, 5);
-    currentHands[`player${i}`] = hand;
-  }
-  res.send({
-    remainingCards: deck.cards,
-    currentHands,
-  });
-});
-
-app.listen(PORT, () => {
-  console.log(`App listening at port ${PORT}`);
-});
