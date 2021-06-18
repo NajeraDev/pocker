@@ -1,3 +1,12 @@
+@font-face {
+	font-family: poker;
+	src: url(/Poker.ttf);
+  }
+
+* {
+	font-family: poker;
+}
+
 body {
 	background-color: green;
   display: flex;
@@ -6,15 +15,15 @@ body {
 }
 
 .card {
-	background-color: #dfdfdf;
-	border: 1px white solid;
-	border-radius: 10px;
+	
 	margin: 5px;
 	width: 100px;
 	height: 150px;
 	display: inline-block;
 	position: relative;
 	color: black;
+	transition: ease 1s;
+	
 }
 .card.♦,
 .card.♥ {
@@ -251,4 +260,48 @@ body {
 .card.♠[number="K"] .symbols .image{
   background-position-x: -236px;
   background-position-y: 658px;
+}
+
+.card.flipped .container{
+	transform: rotateY(180deg);
+	box-shadow: -10px 10px 10px;
+}
+
+.back{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	transform: rotateY(180deg);
+	background-image: url('/back.jpg');
+	backface-visibility: hidden;
+	background-size: 107px;
+	background-position-x: -3px;
+	background-position-y: 0px;
+	
+
+}
+
+.container{
+	background-color: #dfdfdf;
+	border: 1px white solid;
+	border-radius: 10px;
+	height: 100%;
+	width: 100%;
+	transform-style: preserve-3d;
+	transition: transform 0.4s ease-in;
+	box-shadow: 10px 10px 10px ;
+}
+
+.front{
+	height: 100%;
+	width: 100%;
+	transition: ease;
+}
+
+h1,
+h2{
+	background-color: white;
+	box-shadow: 10px 10px;
+	padding: 7px;
+	border-radius: 5px;
 }
